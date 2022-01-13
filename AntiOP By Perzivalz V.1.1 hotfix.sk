@@ -1,0 +1,39 @@
+# Ver.1.0
+# AntiOperator
+# Credit : Perzivalz
+# ติดต่อได้ที่ : FB : Todsaporn Tarawan
+
+## ช่อง "รหัสยืนยันตัวตน" และ "ชื่อผู้เล่น สามารถใส่รหัสและชื่อผู้เล่นได้ตามใจชอบ
+
+every seconds:
+	loop all players:
+		loop-player is op:
+			loop-player is online:
+				if loop-player is not "ชื่อผู้เล่น" or "ชื่อผู้เล่น" or "ชื่อผู้เล่น":
+					execute console command "deop %loop-player%"
+					execute console command "luckperms user %loop-player% permission unset *"
+on join:
+	loop all players:
+		loop-player is op:
+			loop-player is online:
+				if loop-player is "ชื่อผู้เล่น" or "ชื่อผู้เล่น" or "ชื่อผู้เล่น":
+					deop player
+					execute console command "luckperms user %loop-player% permission unset *"
+
+command /verify [<text>]:
+	trigger:
+		if loop-player is "ชื่อผู้เล่น" or "ชื่อผู้เล่น" or "ชื่อผู้เล่น":
+			if arg-1 is not set:
+				send "&r &fกรุณายืนยันตัวตนก่อนใช้คำสั่ง"
+				stop
+			if arg-1 is not "รหัสยืนยันตัวตน":
+				send "&r &fรหัสผิด กรุณาลองใหม่อีกครั้ง!"
+				 
+			if arg-1 is "รหัสยืนยันตัวตน":
+				send "&r &fยืนยันตัวตนเรียบร้อย ท่านสามารถใช้คำสั่งต่างๆได้แล้ว!"
+				op player
+		else:
+			send "&r &fขออภัย! ท่านไม่มีสิทธิ์ในการเข้าถึงคำสั่งนี้!"
+
+On unload:
+     Deop player
